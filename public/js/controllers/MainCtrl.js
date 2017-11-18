@@ -1,6 +1,8 @@
 // public/js/controllers/MainCtrl.js
 angular.module('MainCtrl', ['BookService']).controller('MainController', function ($scope, Book) {
 
+    $scope.searchActive = false;
+    
     Book.all().then(function (books) {
         console.log(books);
         $scope.books = books.data;
@@ -28,6 +30,7 @@ angular.module('MainCtrl', ['BookService']).controller('MainController', functio
         if (isValidOlid) {
             //query passing in olid
             Book.getByOlid(searchTerm).then(function(searchResult){
+                $scope.searchActive = true                
                 $scope.searchResults = [];
                 $scope.searchResults.push(searchResult.data);
                 $scope.searchReulstsFilter = searchResult.data.key.slice(7);                
@@ -36,6 +39,7 @@ angular.module('MainCtrl', ['BookService']).controller('MainController', functio
         } else {
             //query using title
             Book.getByTitle(searchTerm).then(function(searchResult){
+                $scope.searchActive = true;                
                 $scope.searchResults = [];
                 $scope.searchResults.push(searchResult.data);
                 $scope.searchReulstsFilter = searchResult.data.title;
@@ -43,4 +47,9 @@ angular.module('MainCtrl', ['BookService']).controller('MainController', functio
             })
         }
     };
+
+    $scope.clearSearch = function () {
+        $scope.searchActive = false;
+        $scope.searchResults = $scope.books;
+    }
 });
