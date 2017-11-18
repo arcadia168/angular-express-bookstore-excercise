@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <div ng-repeat="book in books | filter: bookSearch">
+    <div ng-repeat="book in searchResults | filter: searchResultsFilter">
         {{book.title}}
         <img src="{{book.cover.small}}">
         <p>{{book.by_statement}}</p>

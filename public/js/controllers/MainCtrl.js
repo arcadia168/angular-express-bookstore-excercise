@@ -7,6 +7,7 @@ angular.module('MainCtrl', ['BookService']).controller('MainController', functio
         //console.log(JSON.stringify(books));
         console.log(books);
         $scope.books = books.data;
+        $scope.searchResults = books.data;
     });
 
     $scope.searchForBook = function (searchTerm) {
@@ -30,13 +31,17 @@ angular.module('MainCtrl', ['BookService']).controller('MainController', functio
         if (isValidOlid) {
             //query passing in olid
             Book.getByOlid(searchTerm).then(function(searchResult){
-                $scope.searchResults = searchResult;
+                $scope.searchResults = [];
+                $scope.searchResults.push(searchResult.data);
+                $scope.searchReulstsFilter = searchResult.data.key.slice(7);                
                 console.log('OLID result is' + JSON.stringify(searchResult))
             })
         } else {
             //query using title
             Book.getByTitle(searchTerm).then(function(searchResult){
-                $scope.searchResults = searchResult;
+                $scope.searchResults = [];
+                $scope.searchResults.push(searchResult.data);
+                $scope.searchReulstsFilter = searchResult.data.title;
                 console.log('TITLE result is' + JSON.stringify(searchResult))                
             })
         }
