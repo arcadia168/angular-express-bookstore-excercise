@@ -5,6 +5,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var mongoose = require('mongoose');
+var http = require('http');
 
 // configuration ===========================================
 
@@ -16,7 +18,7 @@ var port = process.env.PORT || 8080;
 
 // connect to our mongoDB database 
 // (uncomment after you enter in your own credentials in config/db.js)
-// mongoose.connect(db.url); 
+mongoose.connect(db.url);
 
 // get all data/stuff of the body (POST) parameters
 // parse application/json 
@@ -40,6 +42,37 @@ app.use(express.static(__dirname + '/public'));
 
 // routes ==================================================
 require('./app/routes')(app); // configure our routes
+
+//Load data from remote API parse into MongoDB
+var options = {
+    //protocol: 'https',
+    host: 'openlibrary.org',
+    path: '/api/books?bibkeys=OLID:OL22895148M,OLID:OL6990157M,OLID:OL7101974M,OLID:OL6732939M,OLID:OL7193048M,OLID:OL24347578M,OLID:OL24364628M,OLID:OL24180216M,OLID:OL24948637M,OLID:OL1631378M,OLID:OL979600M,OLID:OL33674M,OLID:OL7950349M,OLID:OL349749M,OLID:OL30460M,OLID:OL24347578M&amp;jscmd=data&amp;format=json'
+}
+
+var req = http.get(options, function (res) {
+    console.log('STATUS: ' + res.statusCode);
+    console.log('HEADERS: ' + JSON.stringify(res.headers));
+
+    // Buffer the body entirely for processing as a whole.
+    var bodyChunks = [];
+    res.on('data', function (chunk) {
+        bodyChunks.push(chunk);
+    }).on('end', function () {
+        var body = Buffer.concat(bodyChunks);
+        console.log('BODY: ' + body);
+        // ...and/or process the entire body here.
+        var booksToStore = JSON.parse(body);
+
+        //Process the body as a JSON object and insert into MongoDB
+        console.log(booksToStore);
+
+    })
+});
+
+req.on('error', function (e) {
+    console.log('ERROR: ' + e.message);
+});
 
 // start app ===============================================
 // startup our app at http://localhost:8080
