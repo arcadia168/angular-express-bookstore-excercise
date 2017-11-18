@@ -61,18 +61,21 @@ var req = http.get(options, function (res) {
         var books = Buffer.concat(bodyChunks);
         var booksToStore = JSON.parse(books);
 
-        //iterate over the API results and upsert those in the MongoDB
-        for (var rawBookKey in booksToStore) {
-            //console.log('iterating property' +  rawBookKey);
-            if (booksToStore.hasOwnProperty(rawBookKey)) {
-                //Parse object into Book document
-                var currentBook = new Book(booksToStore[rawBookKey]);
+        //Update the store of books in the collection.
+        mongoose.connection.db.dropCollection('books', function (err, result) {
+            //iterate over the API results and upsert those in the MongoDB
+            for (var rawBookKey in booksToStore) {
+                //console.log('iterating property' +  rawBookKey);
+                if (booksToStore.hasOwnProperty(rawBookKey)) {
+                    //Parse object into Book document
+                    var currentBook = new Book(booksToStore[rawBookKey]);
 
-                currentBook.save(function (err) {
-                    if (err) throw err;
-                });
+                    currentBook.save(function (err) {
+                        if (err) throw err;
+                    });
+                }
             }
-        }
+        });
     })
 });
 

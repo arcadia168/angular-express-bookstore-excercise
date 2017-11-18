@@ -24,12 +24,12 @@
          });
      });
 
-     app.get('/api/books/:book_id', function (req, res) {
+     app.get('/api/olid/books/:book_id', function (req, res) {
 
         //get book id
         var book_id = '/books/' + req.params.book_id;
 
-        console.log('QUERYING FOR ' + book_id);
+        //console.log('QUERYING FOR ' + book_id);
 
         // use mongoose to get all nerds in the database
         Book.findOne({ key: book_id}, function (err, book) {
@@ -42,6 +42,25 @@
             res.json(book); // return all nerds in JSON format
         });
     });
+
+    app.get('/api/title/books/:title', function (req, res) {
+        
+                //get book id
+                var title = req.params.title;
+        
+                //console.log('QUERYING FOR ' + book_id);
+        
+                // use mongoose to get all nerds in the database
+                Book.findOne({ title: title}, function (err, book) {
+        
+                    // if there is an error retrieving, send the error. 
+                    // nothing after res.send(err) will execute
+                    if (err)
+                        res.send(err);
+        
+                    res.json(book); // return all nerds in JSON format
+                });
+            });
 
      // route to handle creating goes here (app.post)
      // route to handle delete goes here (app.delete)

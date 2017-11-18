@@ -7,9 +7,14 @@ angular.module('BookService', []).factory('Book', ['$http', function ($http) {
             return $http.get('/api/books');
         },
 
-        get: function(book_id) {
-            console.log('QUERYING: ' + '/api' + book_id);
-            return $http.get('/api' + book_id);
+        getByOlid: function(book_id) {
+            console.log('QUERYING BY OLID: ' + '/api' + book_id);
+            return $http.get('/api/olid' + book_id);
+        },
+
+        getByTitle: function(book_title) {
+            console.log('QUERYING BY TITLE: api/title/books/' + book_title);
+            return $http.get('/api/title/' + book_title);
         },
 
         // these will work when more API routes are defined on the Node side of things

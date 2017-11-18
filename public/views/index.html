@@ -5,18 +5,17 @@
 <head>
     <meta charset="UTF-8">
     <base href="/">
-
-    <title>Starter Node and Angular</title>
-
     <!-- CSS -->
     <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="css/style.css">
     <!-- custom styles -->
 
     <!-- JS -->
     <script src="libs/angular/angular.js"></script>
     <script src="libs/angular-route/angular-route.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+    
     <!-- ANGULAR CUSTOM -->
     <script src="js/controllers/MainCtrl.js"></script>
     <script src="js/controllers/BookCtrl.js"></script>
@@ -26,23 +25,17 @@
 </head>
 
 <body ng-app="vendigoBookStore***REMOVED******REMOVED***" ng-controller="BookController">
-    <div class="container">
-
-        <!-- HEADER -->
-        <nav class="navbar navbar-inverse">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">Stencil: Node and Angular</a>
+    <div class="navbar navbar-static-top">
+        <div>
+            <div>
+                <h1><span class="ion-ios-book"></span>BOOK STORE</h1>
             </div>
-
-            <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
-            <ul class="nav navbar-nav">
-                <li><a href="/books">Books</a></li>
-            </ul>
-        </nav>
-
+            <p>The biggest choice in the web.</p>
+        </div>
+    </div>
+    <div class="container-fluid">
         <!-- ANGULAR DYNAMIC CONTENT -->
         <div ng-view></div>
-
     </div>
 </body>
 
