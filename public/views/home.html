@@ -3,5 +3,9 @@
 <div class="jumbotron text-center">
     <h1>Home Page 4 Life</h1>
 
-    <p>{{ tagline }}</p>
+    <div ng-repeat="book in books">
+        {{book.title}}
+        <img src="{{book.cover.small}}">
+        <p>{{book.by_statement}}</p>        
+    </div>
 </div>

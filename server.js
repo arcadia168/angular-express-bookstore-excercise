@@ -45,7 +45,7 @@ app.use(express.static(__dirname + '/public'));
 // routes ==================================================
 require('./app/routes')(app); // configure our routes
 
-//Load data from remote API parse into MongoDB
+//query 2nd party api for books
 var options = {
     //protocol: 'https',
     host: 'openlibrary.org',
@@ -53,34 +53,23 @@ var options = {
 }
 
 var req = http.get(options, function (res) {
-    console.log('STATUS: ' + res.statusCode);
-    console.log('HEADERS: ' + JSON.stringify(res.headers));
-
     // Buffer the body entirely for processing as a whole.
     var bodyChunks = [];
     res.on('data', function (chunk) {
         bodyChunks.push(chunk);
     }).on('end', function () {
-        var body = Buffer.concat(bodyChunks);
-        //console.log('BODY: ' + body);
-        // ...and/or process the entire body here.
-        var booksToStore = JSON.parse(body);
+        var books = Buffer.concat(bodyChunks);
+        var booksToStore = JSON.parse(books);
 
-        //Process the body as a JSON object and insert into MongoDB
-        console.log(booksToStore);
-
-        //iterate over the API results and store in the MongoDB
+        //iterate over the API results and upsert those in the MongoDB
         for (var rawBookKey in booksToStore) {
             //console.log('iterating property' +  rawBookKey);
             if (booksToStore.hasOwnProperty(rawBookKey)) {
                 //Parse object into Book document
                 var currentBook = new Book(booksToStore[rawBookKey]);
 
-                //console.log('attempting to save' + currentBook)
-
                 currentBook.save(function (err) {
                     if (err) throw err;
-                    console.log('saved');
                 });
             }
         }
@@ -88,8 +77,8 @@ var req = http.get(options, function (res) {
 });
 
 req.on('error', function (e) {
-    console.log('ERROR: ' + e.message);
-});
+    res.send(e);
+})
 
 // start app ===============================================
 // startup our app at http://localhost:8080
