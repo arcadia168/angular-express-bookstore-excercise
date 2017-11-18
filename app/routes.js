@@ -48,7 +48,7 @@
                 //get book id
                 var title = req.params.title;
         
-                //console.log('QUERYING FOR ' + book_id);
+                console.log('QUERYING FOR TITLE' + title);
         
                 // use mongoose to get all nerds in the database
                 Book.findOne({ title: title}, function (err, book) {
