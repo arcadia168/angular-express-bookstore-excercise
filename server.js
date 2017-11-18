@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
 var http = require('http');
+var Book = require('./app/models/book');
+var _ = require('underscore');
 
 // configuration ===========================================
 
@@ -60,13 +62,28 @@ var req = http.get(options, function (res) {
         bodyChunks.push(chunk);
     }).on('end', function () {
         var body = Buffer.concat(bodyChunks);
-        console.log('BODY: ' + body);
+        //console.log('BODY: ' + body);
         // ...and/or process the entire body here.
         var booksToStore = JSON.parse(body);
 
         //Process the body as a JSON object and insert into MongoDB
         console.log(booksToStore);
 
+        //iterate over the API results and store in the MongoDB
+        for (var rawBookKey in booksToStore) {
+            //console.log('iterating property' +  rawBookKey);
+            if (booksToStore.hasOwnProperty(rawBookKey)) {
+                //Parse object into Book document
+                var currentBook = new Book(booksToStore[rawBookKey]);
+
+                //console.log('attempting to save' + currentBook)
+
+                currentBook.save(function (err) {
+                    if (err) throw err;
+                    console.log('saved');
+                });
+            }
+        }
     })
 });
 

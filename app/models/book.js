@@ -67,11 +67,26 @@ var classificationSchema = new mongoose.Schema({
 var bookSchema = new mongoose.Schema({
     publishers: [bookPublishPropertySchema],
     pagination: String,
-    identifiers: bookIdentifiersSchema,
+    identifiers: {
+        openLibrary: [String],
+        oclc: [String],
+        lccn: [String],
+        goodreads: [String],
+        isbn_10: [String],
+        isbn_13: [String],
+        project_gutenberg: [String],
+        librarything: [String],
+        google: [String],
+        amazon: [String]
+    },
     title: String,
     url: String,
     number_of_pages: Number,
-    cover: bookCoverSchema,
+    cover: {
+        small: String,
+        medium: String,
+        large: String
+    },
     publish_date: String,
     key: String,
     by_statement: String,
@@ -84,7 +99,10 @@ var bookSchema = new mongoose.Schema({
     subject_places: [bookPropertySchema],
     subject_times: [bookPropertySchema],
     links: [linkSchema],
-    classifications: classificationSchema,
+    classifications: {
+        dewey_decimal_class: [String],
+        lc_classifications: [String]
+    },
     weight: String
 })
 
