@@ -31,7 +31,7 @@ angular.module('MainCtrl', ['BookService']).controller('MainController', functio
             Book.getByOlid(searchTerm).then(function (searchResult) {
                 $scope.searchActive = true
                 $scope.searchResults = [];
-                if (searchResult.data.key) {
+                if (typeof searchResult.data.key !== "undefined") {
                     $scope.searchResults.push(searchResult.data);
                 }
             })
@@ -40,7 +40,7 @@ angular.module('MainCtrl', ['BookService']).controller('MainController', functio
             Book.getByTitle(searchTerm).then(function (searchResult) {
                 $scope.searchActive = true;
                 $scope.searchResults = [];
-                if (searchResult.data.key) {
+                if (searchResult.data) {
                     $scope.searchResults.push(searchResult.data);
                 }
             })

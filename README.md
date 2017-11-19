@@ -1,5 +1,20 @@
 # Candidate Exercise
 
+## Solution
+
+To see the solution working: go to
+
+To install the necessary dependencies: 
+- npm install
+- bower install
+
+To start the service:
+- node server.js OR npm start
+
+To run tests:
+- Backend tests - 'npm test'
+- Frontend tests - 'karma start'
+
 ## Requirements
 
 Let's pretend we want to sell books online (like Amazon). As a first step we want to build a site that lists books displaying the book cover image, title, author, open library Id number (OLID), and price.
