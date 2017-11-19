@@ -2,7 +2,7 @@
 angular.module('MainCtrl', ['BookService']).controller('MainController', function ($scope, Book) {
 
     $scope.searchActive = false;
-    
+
     Book.all().then(function (books) {
         console.log(books);
         $scope.books = books.data;
@@ -11,7 +11,6 @@ angular.module('MainCtrl', ['BookService']).controller('MainController', functio
 
     $scope.searchForBook = function (searchTerm) {
 
-        console.log("Searching for book: " + searchTerm);
         //search term can be a title or an OLID
 
         //ASSUMPTION: valid OLID if starts with 'OL', and ends with 'M', with onlsy numbers in between
@@ -33,8 +32,6 @@ angular.module('MainCtrl', ['BookService']).controller('MainController', functio
                 $scope.searchActive = true                
                 $scope.searchResults = [];
                 $scope.searchResults.push(searchResult.data);
-                $scope.searchReulstsFilter = searchResult.data.key.slice(7);                
-                console.log('OLID result is' + JSON.stringify(searchResult))
             })
         } else {
             //query using title
@@ -42,8 +39,6 @@ angular.module('MainCtrl', ['BookService']).controller('MainController', functio
                 $scope.searchActive = true;                
                 $scope.searchResults = [];
                 $scope.searchResults.push(searchResult.data);
-                $scope.searchReulstsFilter = searchResult.data.title;
-                console.log('TITLE result is' + JSON.stringify(searchResult))                
             })
         }
     };
