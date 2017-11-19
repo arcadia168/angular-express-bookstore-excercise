@@ -1,5 +1,4 @@
 .navbar {
-    /* background-color: #e6e6e6; */
     height: 15rem;
     display: flex;
     align-items: center;
@@ -43,7 +42,7 @@ body {
 }
 
 .thumbnail {
-    height: 30rem !important;
+    height: 33rem !important;
     border-radius: 6px;
 }
 
@@ -70,6 +69,13 @@ body {
 
 .book-author-link {
     color: #94584D !important;
+}
+
+.book-price {
+    position: absolute;
+    bottom: 4rem;
+    left: 3rem;
+    font-size: 2rem;
 }
 
 .search-bar {
