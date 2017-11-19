@@ -28,17 +28,21 @@ angular.module('MainCtrl', ['BookService']).controller('MainController', functio
 
         if (isValidOlid) {
             //query passing in olid
-            Book.getByOlid(searchTerm).then(function(searchResult){
-                $scope.searchActive = true                
+            Book.getByOlid(searchTerm).then(function (searchResult) {
+                $scope.searchActive = true
                 $scope.searchResults = [];
-                $scope.searchResults.push(searchResult.data);
+                if (searchResult.data.key) {
+                    $scope.searchResults.push(searchResult.data);
+                }
             })
         } else {
             //query using title
-            Book.getByTitle(searchTerm).then(function(searchResult){
-                $scope.searchActive = true;                
+            Book.getByTitle(searchTerm).then(function (searchResult) {
+                $scope.searchActive = true;
                 $scope.searchResults = [];
-                $scope.searchResults.push(searchResult.data);
+                if (searchResult.data.key) {
+                    $scope.searchResults.push(searchResult.data);
+                }
             })
         }
     };

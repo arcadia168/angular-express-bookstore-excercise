@@ -18,7 +18,7 @@
     </div>
 
     <div ng-repeat="book in searchResults" ng-if="$index % 3 == 0" class="row">
-        <div class="col-xs-4">
+        <div class="col-xs-4" ng-if="searchResults.length > $index">
             <div class="thumbnail">
                 <img class="thumbnail-img" src="{{searchResults[$index].cover.medium}}" alt="...">
                 <div class="caption">
