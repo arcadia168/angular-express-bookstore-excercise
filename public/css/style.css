@@ -6,14 +6,29 @@ body {
     background-color: whitesmoke !important;
 }
 
+.container {
+    max-width: 750px;
+    min-width: 750px;
+}
+
 .bottom-buffer { margin-bottom:20px; }
 
 .thumbnail { 
-    height: 35rem !important;
+    height: 30rem !important;
     border-radius: 6px;
  }
 
 .thumbnail img { 
-    height: 20rem !important;
+    height: 15rem !important;
     margin-top: 10px !important;
+ }
+
+ .book-title, book-author {
+     width: 100%;
+ }
+
+ .buy-btn {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
  }

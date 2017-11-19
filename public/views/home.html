@@ -17,10 +17,12 @@
             <div class="thumbnail">
                 <img class="thumbnail-img" src="{{searchResults[$index].cover.medium}}" alt="...">
                 <div class="caption">
-                    <h4>{{searchResults[$index].title}}</h4>
-                    <h6 ng-if="searchResults[$index].authors[0] !== undefined">By <a href="{{searchResults[$index].authors[0].url}}">{{searchResults[$index].authors[0].name}}</a></h6>
-                    <h6 ng-if="searchResults[$index].authors[0] == undefined">By {{searchResults[$index].by_statement}}</h6>
-                    <a href="#" class="btn btn-default pull-right" role="button">Add to Cart</a>
+                    <div class="pull-left">
+                        <h5 class="book-title text-left">{{searchResults[$index].title.trim()}}</h5>
+                        <h6 class="book-author pull-left" ng-if="searchResults[$index].authors[0] !== undefined">By <a href="{{searchResults[$index].authors[0].url}}">{{searchResults[$index].authors[0].name}}</a></h6>
+                        <h6 class="book-author pull-left" ng-if="searchResults[$index].authors[0] == undefined">By {{searchResults[$index].by_statement}}</h6>
+                    </div>
+                    <a href="#" class="btn btn-default pull-right buy-btn" role="button">Add to Cart</a>
                 </div>
             </div>
         </div>
@@ -28,10 +30,12 @@
             <div class="thumbnail" ng-if="searchResults.length > ($index + 1)">
                 <img class="thumbnail-img" src="{{searchResults[$index + 1].cover.medium}}" alt="...">
                 <div class="caption">
-                    <h4>{{searchResults[$index + 1].title}}</h4>
-                    <h6 ng-if="searchResults[$index + 1].authors[0] !== undefined">By <a href="{{searchResults[$index + 1].authors[0].url}}">{{searchResults[$index + 1].authors[0].name}}</a></h6>
-                    <h6 ng-if="searchResults[$index + 1].authors[0] == undefined">By {{searchResults[$index + 1].by_statement}}</h6>
-                    <a href="#" class="btn btn-default pull-right" role="button">Add to Cart</a>
+                    <div class="pull-left">
+                        <h5 class="book-title text-left">{{searchResults[$index + 1].title.trim()}}</h5>
+                        <h6 class="book-author pull-left" ng-if="searchResults[$index + 1].authors[0] !== undefined">By <a href="{{searchResults[$index + 1].authors[0].url}}">{{searchResults[$index + 1].authors[0].name}}</a></h6>
+                        <h6 class="book-author pull-left" ng-if="searchResults[$index + 1].authors[0] == undefined">By {{searchResults[$index + 1].by_statement}}</h6>
+                    </div>
+                    <a href="#" class="btn btn-default pull-right buy-btn" role="button">Add to Cart</a>
                 </div>
             </div>
         </div>
@@ -39,10 +43,12 @@
             <div class="thumbnail" ng-if="searchResults.length > ($index + 2)">
                 <img class="thumbnail-img" src="{{searchResults[$index + 2].cover.medium}}" alt="...">
                 <div class="caption">
-                    <h4>{{searchResults[$index + 2].title}}</h4>
-                    <h6 ng-if="searchResults[$index + 2].authors[0] !== undefined">By <a href="{{searchResults[$index + 2].authors[0].url}}">{{searchResults[$index + 2].authors[0].name}}</a></h6>
-                    <h6 ng-if="searchResults[$index + 2].authors[0] == undefined">By {{searchResults[$index + 1].by_statement}}</h6>
-                    <a href="#" class="btn btn-default pull-right" role="button">Add to Cart</a>
+                    <div class="pull-left">
+                        <h5 class="book-title text-left">{{searchResults[$index + 2].title.trim()}}</h5>
+                        <h6 class="book-author pull-left" ng-if="searchResults[$index + 2].authors[0] !== undefined">By <a href="{{searchResults[$index + 2].authors[0].url}}">{{searchResults[$index + 2].authors[0].name}}</a></h6>
+                        <h6 class="book-author pull-left" ng-if="searchResults[$index + 2].authors[0] == undefined">By {{searchResults[$index + 1].by_statement}}</h6>
+                    </div>
+                    <a href="#" class="btn btn-default pull-right buy-btn" role="button">Add to Cart</a>
                 </div>
             </div>
         </div>
