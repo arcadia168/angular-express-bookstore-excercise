@@ -88,6 +88,21 @@ body {
     color: white;
 }
 
+.featured-banner {
+    background: linear-gradient(#cc3c2d, #df4f40);
+    color: white;
+    height: 3.5rem;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: left;
+    padding: 2rem;
+    display: flex;
+}
+
+.featured-banner-text {
+    align-self: center;
+}
+
 .buy-btn {
     position: absolute;
     bottom: 4rem;

@@ -9,12 +9,6 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             controller: 'MainController'
         })
 
-        // books page that will use the BookController
-        .when('/books', {
-            templateUrl: 'views/book.html',
-            controller: 'BookController'
-        });
-
     $locationProvider.html5Mode(true);
 
 }]);
