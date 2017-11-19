@@ -118,35 +118,35 @@
          res.sendfile('./public/views/index.html'); // load our public/index.html file
      });
 
-     app.get('libs/angular/angular.js', function(req, res) {
+     app.get('/libs/angular/angular.js', function(req, res) {
         res.sendfile('./public/libs/angular/angular.js');        
      })
 
-     app.get('libs/angular-route/angular-route.js', function(req, res) {
+     app.get('/libs/angular-route/angular-route.js', function(req, res) {
         res.sendfile('./public/libs/angular-route/angular-route.js');
      })
 
-     app.get('js/controllers/MainCtrl.js', function(req, res) {
+     app.get('/js/controllers/MainCtrl.js', function(req, res) {
         res.sendfile('./public/js/controllers/MainCtrl.js');
      })
 
-     app.get('js/services/BookService.js', function(req, res) {
+     app.get('/js/services/BookService.js', function(req, res) {
         res.sendfile('./public/js/services/BookService.js');
      })
 
-     app.get('js/appRoutes.js', function(req, res) {
+     app.get('/js/appRoutes.js', function(req, res) {
         res.sendfile('./public/js/appRoutes.js');
      })
 
-     app.get('js/app.js', function(req, res) {
+     app.get('/js/app.js', function(req, res) {
         res.sendfile('./public/js/app.js');
      })
 
-     app.get('libs/bootstrap/dist/css/bootstrap.min.css', function(req, res) {
+     app.get('/libs/bootstrap/dist/css/bootstrap.min.css', function(req, res) {
         res.sendfile('./public/libs/bootstrap/dist/css/bootstrap.min.css');
      })
 
-     app.get('css/style.css', function(req, res) {
+     app.get('/css/style.css', function(req, res) {
         res.sendfile('./public/css/style.css');
      })
  };
