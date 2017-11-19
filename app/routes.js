@@ -119,35 +119,34 @@
      });
 
      app.get('libs/angular/angular.js', function(req, res) {
-        res.sendfile('libs/angular/angular.js');        
+        res.sendfile('./public/libs/angular/angular.js');        
      })
 
      app.get('libs/angular-route/angular-route.js', function(req, res) {
-        res.sendfile('libs/angular-route/angular-route.js');
+        res.sendfile('./public/libs/angular-route/angular-route.js');
      })
 
      app.get('js/controllers/MainCtrl.js', function(req, res) {
-        res.sendfile('js/controllers/MainCtrl.js');
+        res.sendfile('./public/js/controllers/MainCtrl.js');
      })
 
      app.get('js/services/BookService.js', function(req, res) {
-        res.sendfile('js/services/BookService.js');
+        res.sendfile('./public/js/services/BookService.js');
      })
 
      app.get('js/appRoutes.js', function(req, res) {
-        res.sendfile('js/appRoutes.js');
+        res.sendfile('./public/js/appRoutes.js');
      })
 
      app.get('js/app.js', function(req, res) {
-        res.sendfile('js/app.js');
+        res.sendfile('./public/js/app.js');
      })
 
      app.get('libs/bootstrap/dist/css/bootstrap.min.css', function(req, res) {
-        res.sendfile('libs/bootstrap/dist/css/bootstrap.min.css');
+        res.sendfile('./public/libs/bootstrap/dist/css/bootstrap.min.css');
      })
 
-     css/style.css
      app.get('css/style.css', function(req, res) {
-        res.sendfile('css/style.css');
+        res.sendfile('./public/css/style.css');
      })
  };
