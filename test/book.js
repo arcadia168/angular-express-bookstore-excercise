@@ -25,4 +25,24 @@ describe('/GET /api/books', () => {
                 done();
             });
     });
+
+    it('it should GET a sepcific book by OLID', (done) => {
+        chai.request(server)
+            .get('/api/olid/books/OL24364628M')
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.key.should.have.string('OL24364628M');
+                done();
+            });
+    });
+
+    it('it should GET a sepcific book by title', (done) => {
+        chai.request(server)
+            .get('/api/title/books/Great%20expectations')
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.title.should.have.string('Great expectations');
+                done();
+            });
+    });
 });
