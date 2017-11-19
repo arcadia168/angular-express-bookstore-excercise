@@ -1,3 +1,3 @@
 module.exports = {
-    url : 'mongodb://localhost:27017/'
+    url : 'mongodb://testuser:Password123@ds113906.mlab.com:13906/vendigo-book-store'
 }

@@ -45,44 +45,6 @@ app.use(express.static(__dirname + '/public'));
 // routes ==================================================
 require('./app/routes')(app); // configure our routes
 
-//query 2nd party api for books
-var options = {
-    //protocol: 'https',
-    host: 'openlibrary.org',
-    path: '/api/books?bibkeys=OLID:OL22895148M,OLID:OL6990157M,OLID:OL7101974M,OLID:OL6732939M,OLID:OL7193048M,OLID:OL24347578M,OLID:OL24364628M,OLID:OL24180216M,OLID:OL24948637M,OLID:OL1631378M,OLID:OL979600M,OLID:OL33674M,OLID:OL7950349M,OLID:OL349749M,OLID:OL30460M,OLID:OL24347578M&amp;jscmd=data&amp;format=json'
-}
-
-var req = http.get(options, function (res) {
-    // Buffer the body entirely for processing as a whole.
-    var bodyChunks = [];
-    res.on('data', function (chunk) {
-        bodyChunks.push(chunk);
-    }).on('end', function () {
-        var books = Buffer.concat(bodyChunks);
-        var booksToStore = JSON.parse(books);
-
-        //Update the store of books in the collection.
-        mongoose.connection.db.dropCollection('books', function (err, result) {
-            //iterate over the API results and upsert those in the MongoDB
-            for (var rawBookKey in booksToStore) {
-                //console.log('iterating property' +  rawBookKey);
-                if (booksToStore.hasOwnProperty(rawBookKey)) {
-                    //Parse object into Book document
-                    var currentBook = new Book(booksToStore[rawBookKey]);
-
-                    currentBook.save(function (err) {
-                        if (err) throw err;
-                    });
-                }
-            }
-        });
-    })
-});
-
-req.on('error', function (e) {
-    res.send(e);
-})
-
 // start app ===============================================
 // startup our app at http://localhost:8080
 app.listen(port);

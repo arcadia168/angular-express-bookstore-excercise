@@ -46,5 +46,6 @@ angular.module('MainCtrl', ['BookService']).controller('MainController', functio
     $scope.clearSearch = function () {
         $scope.searchActive = false;
         $scope.searchResults = $scope.books;
+        $scope.searchTerm = '';
     }
 });
