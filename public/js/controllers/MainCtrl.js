@@ -16,11 +16,11 @@ angular.module('MainCtrl', ['BookService']).controller('MainController', functio
         //ASSUMPTION: valid OLID if starts with 'OL', and ends with 'M', with onlsy numbers in between
         //REGEX FOR THIS: /^OL\d+M\s/
         var regexp = /^OL\d+M$/;
-        let m;
+        let matches;
         let isValidOlid = false;
 
         //first check title is an OLID
-        if ((m = searchTerm.match(regexp)) !== null) {
+        if ((matches = searchTerm.match(regexp)) !== null) {
             isValidOlid = true;
         }
 

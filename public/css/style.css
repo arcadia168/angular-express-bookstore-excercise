@@ -5,3 +5,15 @@
 body {
     background-color: whitesmoke !important;
 }
+
+.bottom-buffer { margin-bottom:20px; }
+
+.thumbnail { 
+    height: 35rem !important;
+    border-radius: 6px;
+ }
+
+.thumbnail img { 
+    height: 20rem !important;
+    margin-top: 10px !important;
+ }

@@ -1,9 +1,9 @@
 <!-- public/views/home.html -->
 
 <div class="text-center">
-    <div class="input-group add-on">
-        <input class="form-control" ng-keyup="$event.keyCode == 13 ? searchForBook(searchTerm) : null" ng-model="searchTerm" placeholder="Search"
-            name="srch-term" id="srch-term" type="text">
+    <div class="input-group add-on bottom-buffer">
+        <input class="form-control" ng-keyup="$event.keyCode == 13 ? searchForBook(searchTerm) : undefined" ng-model="searchTerm"
+            placeholder="Search" name="srch-term" id="srch-term" type="text">
         <div ng-if="searchActive == false" class="input-group-btn">
             <button class="btn btn-default" ng-click="searchForBook(searchTerm)" type="submit"><i class="glyphicon glyphicon-search"></i></button>
         </div>
@@ -12,9 +12,39 @@
         </div>
     </div>
 
-    <div ng-repeat="book in searchResults">
-        {{book.title}}
-        <img src="{{book.cover.small}}">
-        <p>{{book.by_statement}}</p>
+    <div ng-repeat="book in searchResults" ng-if="$index % 3 == 0" class="row">
+        <div class="col-xs-4">
+            <div class="thumbnail">
+                <img class="thumbnail-img" src="{{searchResults[$index].cover.medium}}" alt="...">
+                <div class="caption">
+                    <h4>{{searchResults[$index].title}}</h4>
+                    <h6 ng-if="searchResults[$index].authors[0] !== undefined">By <a href="{{searchResults[$index].authors[0].url}}">{{searchResults[$index].authors[0].name}}</a></h6>
+                    <h6 ng-if="searchResults[$index].authors[0] == undefined">By {{searchResults[$index].by_statement}}</h6>
+                    <a href="#" class="btn btn-default pull-right" role="button">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="thumbnail" ng-if="searchResults.length > ($index + 1)">
+                <img class="thumbnail-img" src="{{searchResults[$index + 1].cover.medium}}" alt="...">
+                <div class="caption">
+                    <h4>{{searchResults[$index + 1].title}}</h4>
+                    <h6 ng-if="searchResults[$index + 1].authors[0] !== undefined">By <a href="{{searchResults[$index + 1].authors[0].url}}">{{searchResults[$index + 1].authors[0].name}}</a></h6>
+                    <h6 ng-if="searchResults[$index + 1].authors[0] == undefined">By {{searchResults[$index + 1].by_statement}}</h6>
+                    <a href="#" class="btn btn-default pull-right" role="button">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 ">
+            <div class="thumbnail" ng-if="searchResults.length > ($index + 2)">
+                <img class="thumbnail-img" src="{{searchResults[$index + 2].cover.medium}}" alt="...">
+                <div class="caption">
+                    <h4>{{searchResults[$index + 2].title}}</h4>
+                    <h6 ng-if="searchResults[$index + 2].authors[0] !== undefined">By <a href="{{searchResults[$index + 2].authors[0].url}}">{{searchResults[$index + 2].authors[0].name}}</a></h6>
+                    <h6 ng-if="searchResults[$index + 2].authors[0] == undefined">By {{searchResults[$index + 1].by_statement}}</h6>
+                    <a href="#" class="btn btn-default pull-right" role="button">Add to Cart</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
