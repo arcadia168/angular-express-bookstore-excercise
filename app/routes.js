@@ -29,7 +29,7 @@
         //get book id
         var book_id = '/books/' + req.params.book_id;
 
-        //console.log('QUERYING FOR ' + book_id);
+        console.log('QUERYING FOR OLID: ' + book_id);
 
         // use mongoose to get all nerds in the database
         Book.findOne({ key: book_id}, function (err, book) {
@@ -48,7 +48,7 @@
                 //get book id
                 var title = req.params.title;
         
-                console.log('QUERYING FOR TITLE' + title);
+                console.log('QUERYING FOR TITLE: ' + title);
         
                 // use mongoose to get all nerds in the database
                 Book.findOne({ title: title}, function (err, book) {
