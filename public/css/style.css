@@ -1,5 +1,32 @@
 .navbar {
-    background-color: #e6e6e6;
+    /* background-color: #e6e6e6; */
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(white, lightgrey);
+}
+
+.navbar-content {
+    margin-left: 5rem;
+    font-family: Comfortaa, cursive; ;
+    min-width: 289px;
+}
+
+.book-store-icon {
+    margin-right: 1rem;
+    font-size: 4rem;
+    color: #D94940;
+    position: relative;
+    right: 1rem;
+    top: 0.25rem;
+}
+
+.navbar-page-subtitle {
+    position: relative;
+    bottom: 1rem;
+    font-size: 12px;
+    color: darkgrey;
+    left: 4.5rem;
 }
 
 body {
@@ -11,24 +38,54 @@ body {
     min-width: 750px;
 }
 
-.bottom-buffer { margin-bottom:20px; }
+.bottom-buffer {
+    margin-bottom: 20px;
+}
 
-.thumbnail { 
+.thumbnail {
     height: 30rem !important;
     border-radius: 6px;
- }
+}
 
-.thumbnail img { 
+.thumbnail img {
     height: 15rem !important;
-    margin-top: 10px !important;
- }
+    margin-top: 20px !important;
+}
 
- .book-title, book-author {
-     width: 100%;
- }
+.book-title {
+    width: 100%;
+    margin-bottom: 5px;
+    color: #94584D
+}
 
- .buy-btn {
+.book-author {
+    width: 100%;
+    margin-top: 5px;
+    color: #7E7E7E;
+}
+
+.book-details {
+    color: #7E7E7E;
+}
+
+.book-author-link {
+    color: #94584D !important;
+}
+
+.search-bar {
+    border: 3px solid #d6d6d6;
+    border-radius: 7px;
+}
+
+.search-btn {
+    background-color: #E14838;
+    color: white;
+}
+
+.buy-btn {
     position: absolute;
-    bottom: 3rem;
+    bottom: 4rem;
     right: 3rem;
- }
+    background-color: #2d2d2d;
+    color: white;
+}
