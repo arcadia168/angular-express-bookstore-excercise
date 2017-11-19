@@ -43,7 +43,7 @@
                         <h5 class="book-title text-left">{{searchResults[$index + 1].title.trim()}}</h5>
                         <h6 class="book-author text-left" ng-if="searchResults[$index + 1].authors[0] !== undefined">By <a class="book-author-link" href="{{searchResults[$index + 1].authors[0].url}}">{{searchResults[$index + 1].authors[0].name}}</a></h6>
                         <h6 class="book-author text-left" ng-if="searchResults[$index + 1].authors[0] == undefined">By {{searchResults[$index + 1].by_statement}}</h6>
-                        <h6 class="text-left">OLID: {{searchResults[$index].key.slice(7)}}</h6>
+                        <h6 class="text-left">OLID: {{searchResults[$index + 1].key.slice(7)}}</h6>
                     </div>
                 </div>
                 <div>
@@ -59,8 +59,8 @@
                     <div class="book-details pull-left">
                         <h5 class="book-title text-left">{{searchResults[$index + 2].title.trim()}}</h5>
                         <h6 class="book-author text-left" ng-if="searchResults[$index + 2].authors[0] !== undefined">By <a class="book-author-link" href="{{searchResults[$index + 2].authors[0].url}}">{{searchResults[$index + 2].authors[0].name}}</a></h6>
-                        <h6 class="book-author text-left" ng-if="searchResults[$index + 2].authors[0] == undefined">By {{searchResults[$index + 1].by_statement}}</h6>
-                        <h6 class="text-left">OLID: {{searchResults[$index].key.slice(7)}}</h6>
+                        <h6 class="book-author text-left" ng-if="searchResults[$index + 2].authors[0] == undefined">By {{searchResults[$index + 2].by_statement}}</h6>
+                        <h6 class="text-left">OLID: {{searchResults[$index + 2].key.slice(7)}}</h6>
                     </div>
                     <div>
                         <span class="pull-left book-price">{{searchResults[$index + 2].price?(searchResults[$index + 2].price |  currency ):"$0.00" }}</span>
