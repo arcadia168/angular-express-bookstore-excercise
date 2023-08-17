@@ -1064,8 +1064,8 @@ describe('MainController', function () {
                     "E308.6.F7 A2 1907a"
                 ]
             },
-            "title": "The autobiography of ***REMOVED***jamin Franklin",
-            "url": "https://openlibrary.org/books/OL6990157M/The_autobiography_of_***REMOVED***jamin_Franklin",
+            "title": "The autobiography of Benjamin Franklin",
+            "url": "https://openlibrary.org/books/OL6990157M/The_autobiography_of_Benjamin_Franklin",
             "notes": "At head of title: Gateway series.",
             "number_of_pages": 287,
             "cover": {
@@ -1188,8 +1188,8 @@ describe('MainController', function () {
                 }
             ],
             "subject_people": [{
-                    "url": "https://openlibrary.org/subjects/person:***REMOVED***jamin_franklin_(1706-1790)",
-                    "name": "***REMOVED***jamin Franklin (1706-1790)"
+                    "url": "https://openlibrary.org/subjects/person:benjamin_franklin_(1706-1790)",
+                    "name": "Benjamin Franklin (1706-1790)"
                 },
                 {
                     "url": "https://openlibrary.org/subjects/person:frank_woodworth_pine_(1869-)",
@@ -1202,8 +1202,8 @@ describe('MainController', function () {
             ],
             "key": "/books/OL6990157M",
             "authors": [{
-                "url": "https://openlibrary.org/authors/OL26170A/***REMOVED***jamin_Franklin",
-                "name": "***REMOVED***jamin Franklin"
+                "url": "https://openlibrary.org/authors/OL26170A/Benjamin_Franklin",
+                "name": "Benjamin Franklin"
             }],
             "publish_date": "1907",
             "by_statement": "ed. by Albert Henry Smyth.",
