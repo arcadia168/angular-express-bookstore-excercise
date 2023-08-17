@@ -1,5 +1,5 @@
 {
-  "name": "vendigo-***REMOVED***-***REMOVED***-node-angular",
+  "name": "vendigo-erin-eland-node-angular",
   "main": "server.js",
   "dependencies": {
     "body-parser": "~1.4.2",

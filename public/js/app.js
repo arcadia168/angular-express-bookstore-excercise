@@ -1,2 +1,2 @@
 // public/js/app.js
-angular.module('vendigoBookStore***REMOVED******REMOVED***', ['ngRoute', 'appRoutes', 'MainCtrl', 'BookService', 'ui.bootstrap']);
+angular.module('vendigoBookStoreErinEland', ['ngRoute', 'appRoutes', 'MainCtrl', 'BookService', 'ui.bootstrap']);
